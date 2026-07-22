@@ -10,10 +10,9 @@
 
     <!-- Top Navigation Header -->
     <header class="navbar">
-        <!-- Brand / Logo (Anchored Top-Left) -->
         <div class="nav-brand">
             <div id="brandLogo" class="brand-logo-icon">
-                <!-- Default Hub Logo -->
+                <!-- Dynamic SVG Brand Icon Container -->
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
                     <polyline points="2 17 12 22 22 17"></polyline>
@@ -23,7 +22,7 @@
             <span id="brandName">NovaMind</span>
         </div>
 
-        <!-- App Navigation Tabs (Pushed Right / Separated) -->
+        <!-- App Navigation Links -->
         <nav class="nav-links">
             <button type="button" class="nav-link active" data-app="hub">Hub</button>
             <button type="button" class="nav-link" data-app="finance">Finance</button>
@@ -32,23 +31,21 @@
         </nav>
     </header>
 
-    <!-- Main Application Container -->
+    <!-- Main Application Shell -->
     <main class="app-container">
 
         <!-- Hub View -->
         <section id="hub-view" class="app-view active">
-            <!-- Hero Section -->
             <div class="hero">
                 <h1>Welcome to NovaMind</h1>
                 <p>Your centralized personal operating system powered by proactive AI.</p>
             </div>
 
-            <!-- Application Deep Explanation Section -->
+            <!-- Ecosystem Cards -->
             <section class="hub-apps-overview">
                 <h2>Integrated Ecosystem</h2>
                 <div class="app-cards-grid">
                     
-                    <!-- NovaFinance Card -->
                     <article class="hub-app-card">
                         <div class="app-card-header">
                             <span class="app-icon finance-icon">
@@ -59,7 +56,7 @@
                             </span>
                             <h3>NovaFinance</h3>
                         </div>
-                        <p>Track dynamic cash flow, automate safe balance projections, and monitor monthly expense caps with real-time budget adjustments.</p>
+                        <p>Track dynamic cash flow, automate safe balance projections, and monitor monthly expense caps.</p>
                         <ul class="app-features">
                             <li>Dynamic expense tracking</li>
                             <li>Automated balance updates</li>
@@ -67,7 +64,6 @@
                         </ul>
                     </article>
 
-                    <!-- NovaGoals Card -->
                     <article class="hub-app-card">
                         <div class="app-card-header">
                             <span class="app-icon goals-icon">
@@ -79,7 +75,7 @@
                             </span>
                             <h3>NovaGoals</h3>
                         </div>
-                        <p>Deconstruct major life ambitions into weekly actionable milestones and AI-driven tasks tailored to your available time.</p>
+                        <p>Deconstruct major life ambitions into weekly actionable milestones and AI-driven tasks.</p>
                         <ul class="app-features">
                             <li>AI task decomposition</li>
                             <li>Adaptive weekly pacing</li>
@@ -87,7 +83,6 @@
                         </ul>
                     </article>
 
-                    <!-- NovaFit Card -->
                     <article class="hub-app-card">
                         <div class="app-card-header">
                             <span class="app-icon fit-icon">
@@ -99,7 +94,7 @@
                             </span>
                             <h3>NovaFit</h3>
                         </div>
-                        <p>Optimize weekly grocery shopping lists, dietary restrictions, and meal plans while controlling estimated food costs.</p>
+                        <p>Optimize weekly grocery lists, dietary restrictions, and meal plans while controlling costs.</p>
                         <ul class="app-features">
                             <li>Smart grocery summaries</li>
                             <li>Dietary preference profiles</li>
@@ -110,7 +105,7 @@
                 </div>
             </section>
 
-            <!-- Plan Comparison Section -->
+            <!-- Pricing Section -->
             <section class="pricing-section">
                 <div class="table-container">
                     <table class="plan-comparison-table">
@@ -140,51 +135,9 @@
                                 <td>Full depth</td>
                             </tr>
                             <tr>
-                                <td class="feature-name">AI re-decomposition when stuck</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
                                 <td class="feature-name">Smart pacing suggestions</td>
                                 <td class="status-locked">locked</td>
                                 <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Cross-goal dashboard</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Calendar integration</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Proactive check-ins</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Obstacle anticipation</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-locked highlight-tier">locked</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Pattern memory across goals</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-locked highlight-tier">locked</td>
                                 <td class="status-included">included</td>
                                 <td class="status-included">included</td>
                             </tr>
@@ -193,20 +146,6 @@
                                 <td class="status-locked">locked</td>
                                 <td class="status-locked highlight-tier">locked</td>
                                 <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Monthly AI strategy report</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-locked highlight-tier">locked</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Early access to new features</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-locked highlight-tier">locked</td>
-                                <td class="status-locked">locked</td>
                                 <td class="status-included">included</td>
                             </tr>
                         </tbody>
@@ -240,7 +179,7 @@
             <button type="button" class="btn-primary" id="openGoalModalBtn">Add New Goal</button>
 
             <div id="goalsGrid" class="goals-grid">
-                <!-- Dynamic Goal Cards Rendered Here -->
+                <!-- Dynamic Goal Cards -->
             </div>
 
             <div class="grid" id="planArea" hidden>
@@ -272,9 +211,7 @@
 
     </main>
 
-    <!-- Modals -->
-
-    <!-- Add Transaction Modal -->
+    <!-- Dialog Modals -->
     <dialog id="transactionModal">
         <form id="transactionForm">
             <div class="dialog-header">
@@ -296,7 +233,6 @@
         </form>
     </dialog>
 
-    <!-- Add Goal Modal -->
     <dialog id="goalModal">
         <form id="goalForm">
             <div class="dialog-header">
