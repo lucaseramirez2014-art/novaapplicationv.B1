@@ -1,369 +1,110 @@
-/* ==========================================================================
-   NovaMind System Variables & Theme
-   ========================================================================== */
-
-:root {
-  /* Color Palette - Dark OS Aesthetic */
-  --bg-main: #0f172a;
-  --bg-surface: #1e293b;
-  --bg-card: rgba(30, 41, 59, 0.7);
-  --border-color: #334155;
-  --border-focus: #6366f1;
-
-  /* Typography Colors */
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-
-  /* Accent Colors */
-  --accent-hub: #6366f1;
-  --accent-finance: #10b981;
-  --accent-goals: #ef4444;
-  --accent-fit: #059669;
-  --accent-amber: #f59e0b;
-
-  /* Layout & Spacing */
-  --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
-  --transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+/* Metric & Chart Grids */
+.finance-metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+.finance-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
-body {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-  background-color: var(--bg-main);
-  color: var(--text-primary);
-  line-height: 1.6;
-  min-height: 100vh;
+/* Card Components */
+.metric-card, .chart-card {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-/* ==========================================================================
-   Top Navigation Header
-   ========================================================================== */
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  background-color: var(--bg-surface);
-  border-bottom: 1px solid var(--border-color);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  backdrop-filter: blur(8px);
+.metric-label {
+    font-size: 0.875rem;
+    color: #94a3b8;
+    margin-bottom: 0.5rem;
 }
 
-.nav-brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--text-primary);
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f8fafc;
 }
 
-.brand-logo-icon {
-  display: flex;
-  align-items: center;
+.metric-subtext {
+    font-size: 0.75rem;
+    color: #64748b;
+    margin-top: 0.5rem;
 }
 
-.nav-links {
-  display: flex;
-  gap: 0.5rem;
+/* Status Colors */
+.text-success { color: #10b981; }
+.text-danger { color: #ef4444; }
+.text-warning { color: #f59e0b; }
+
+/* Progress Bars */
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #0f172a;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 0.5rem;
 }
 
-.nav-link {
-  background: transparent;
-  border: 1px solid transparent;
-  color: var(--text-secondary);
-  padding: 0.5rem 1rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
+.progress-bar {
+    height: 100%;
+    background-color: #6366f1;
+    border-radius: 4px;
 }
 
-.nav-link:hover {
-  color: var(--text-primary);
-  background-color: rgba(255, 255, 255, 0.05);
+.progress-bar.bg-success {
+    background-color: #10b981;
 }
 
-.nav-link.active {
-  color: #fff;
-  background-color: var(--accent-hub);
-  border-color: var(--border-focus);
+/* SVGs & Minimalist Charts */
+.chart-placeholder {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
-/* ==========================================================================
-   Main Application Container
-   ========================================================================== */
-
-.app-container {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1.5rem;
+.donut-chart {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
 }
 
-.app-view {
-  display: none;
-  animation: fadeIn 0.3s ease-in-out;
+.line-chart {
+    width: 100%;
+    height: 100%;
 }
 
-.app-view.active {
-  display: block;
+.bar-chart {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(6px); }
-  to { opacity: 1; transform: translateY(0); }
+.bar-group {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    height: 100%;
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  margin-bottom: 3rem;
+.bar {
+    width: 24px;
+    border-radius: 4px 4px 0 0;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #94a3b8 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
-.hero p {
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-}
-
-/* ==========================================================================
-   Hub Ecosystem Cards
-   ========================================================================== */
-
-.hub-apps-overview {
-  margin-bottom: 4rem;
-}
-
-.hub-apps-overview h2 {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.app-cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
-
-.hub-app-card {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 1.75rem;
-  transition: var(--transition);
-}
-
-.hub-app-card:hover {
-  transform: translateY(-4px);
-  border-color: var(--border-focus);
-  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
-}
-
-.app-card-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  margin-bottom: 1rem;
-}
-
-.app-features {
-  margin-top: 1rem;
-  list-style: none;
-}
-
-.app-features li {
-  color: var(--text-secondary);
-  font-size: 0.9rem;
-  margin-bottom: 0.4rem;
-  padding-left: 1.2rem;
-  position: relative;
-}
-
-.app-features li::before {
-  content: "•";
-  color: var(--accent-hub);
-  position: absolute;
-  left: 0;
-  font-weight: bold;
-}
-
-/* ==========================================================================
-   Pricing Table
-   ========================================================================== */
-
-.pricing-section {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-lg);
-  padding: 2rem;
-  overflow-x: auto;
-}
-
-.plan-comparison-table {
-  width: 100%;
-  border-collapse: collapse;
-  text-align: left;
-}
-
-.plan-comparison-table caption {
-  font-weight: 700;
-  color: var(--text-muted);
-  letter-spacing: 0.05em;
-  margin-bottom: 1.5rem;
-  text-align: left;
-}
-
-.plan-comparison-table th, 
-.plan-comparison-table td {
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 0.95rem;
-}
-
-.highlight-tier {
-  background-color: rgba(99, 102, 241, 0.08);
-  border-left: 1px solid var(--border-focus);
-  border-right: 1px solid var(--border-focus);
-}
-
-.status-included {
-  color: var(--accent-finance);
-  font-weight: 600;
-}
-
-.status-locked {
-  color: var(--text-muted);
-}
-
-.price {
-  font-size: 1.1rem;
-  font-weight: 700;
-}
-
-/* ==========================================================================
-   Buttons & Dialog Modals
-   ========================================================================== */
-
-.btn-primary {
-  background-color: var(--accent-hub);
-  color: #fff;
-  border: none;
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-primary:hover {
-  opacity: 0.9;
-}
-
-.btn-secondary {
-  background-color: transparent;
-  color: var(--text-secondary);
-  border: 1px solid var(--border-color);
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-secondary:hover {
-  background-color: rgba(255, 255, 255, 0.05);
-  color: var(--text-primary);
-}
-
-.btn-amber {
-  background-color: var(--accent-amber);
-  color: #0f172a;
-  border: none;
-  padding: 0.6rem 1.25rem;
-  border-radius: var(--radius-sm);
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.btn-amber:hover {
-  opacity: 0.9;
-}
-
-.btn-close {
-  background: transparent;
-  border: none;
-  color: var(--text-secondary);
-  font-size: 1.1rem;
-  cursor: pointer;
-}
-
-dialog {
-  background-color: var(--bg-surface);
-  color: var(--text-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  padding: 2rem;
-  margin: auto;
-  max-width: 450px;
-  width: 90%;
-}
-
-dialog::backdrop {
-  background-color: rgba(15, 23, 42, 0.75);
-  backdrop-filter: blur(4px);
-}
-
-.dialog-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.25rem;
-}
-
-.form-group {
-  margin-bottom: 1.25rem;
-}
-
-.form-group label {
-  display: block;
-  font-size: 0.875rem;
-  color: var(--text-secondary);
-  margin-bottom: 0.5rem;
-}
-
-.form-group input, 
-.form-group select {
-  width: 100%;
-  padding: 0.6rem;
-  background-color: var(--bg-main);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  color: var(--text-primary);
-}
-
-.dialog-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-  margin-top: 1.5rem;
-}
+.bar-income { background-color: #10b981; }
+.bar-expense { background-color: #ef4444; }

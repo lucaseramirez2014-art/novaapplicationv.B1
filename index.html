@@ -1,265 +1,102 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NovaMind - AI Personal OS</title>
-    <!-- Directly linking styles.css at the root level -->
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+<!-- Finance View -->
+<section id="finance-view" class="app-view">
+    <div class="view-header">
+        <h2>NovaFinance Overview</h2>
+        <button type="button" class="btn-primary" id="openTxnModalBtn">+ Add Transaction</button>
+    </div>
 
-    <!-- Top Navigation Header -->
-    <header class="navbar">
-        <div class="nav-brand">
-            <div id="brandLogo" class="brand-logo-icon">
-                <!-- Dynamic SVG Brand Icon Container -->
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-                    <polyline points="2 17 12 22 22 17"></polyline>
-                    <polyline points="2 12 12 17 22 12"></polyline>
+    <!-- 1. Key Metric Cards Grid -->
+    <div class="finance-metrics-grid">
+        <div class="metric-card">
+            <span class="metric-label">Current Balance</span>
+            <span class="metric-value" id="currentBalance">$12,450.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Monthly Income</span>
+            <span class="metric-value text-success" id="monthlyIncome">$4,500.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Monthly Expenses</span>
+            <span class="metric-value text-danger" id="monthlyExpenses">$1,970.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Net Income</span>
+            <span class="metric-value" id="netIncome">$2,530.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Savings Rate</span>
+            <span class="metric-value" id="savingsRate">56.2%</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Budget Progress</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar" style="width: 65%;"></div>
+            </div>
+            <span class="metric-subtext">65% of monthly budget used</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Debt Remaining</span>
+            <span class="metric-value text-warning" id="debtRemaining">$1,200.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Investment Value</span>
+            <span class="metric-value" id="investmentValue">$8,340.00</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Emergency Fund</span>
+            <div class="progress-bar-container">
+                <div class="progress-bar bg-success" style="width: 80%;"></div>
+            </div>
+            <span class="metric-subtext">$8,000 / $10,000 Goal</span>
+        </div>
+    </div>
+
+    <!-- 2. Visual Analytics Charts Grid -->
+    <div class="finance-charts-grid">
+        
+        <!-- Spending by Category -->
+        <div class="chart-card">
+            <h3>Spending by Category</h3>
+            <div class="chart-placeholder">
+                <svg viewBox="0 0 36 36" class="donut-chart">
+                    <circle class="donut-ring" cx="18" cy="18" r="15.915" fill="transparent" stroke="#1e293b" stroke-width="3.8"/>
+                    <circle class="donut-segment" cx="18" cy="18" r="15.915" fill="transparent" stroke="#6366f1" stroke-width="3.8" stroke-dasharray="40 60" stroke-dashoffset="25"/>
+                    <circle class="donut-segment" cx="18" cy="18" r="15.915" fill="transparent" stroke="#10b981" stroke-width="3.8" stroke-dasharray="30 70" stroke-dashoffset="85"/>
+                    <circle class="donut-segment" cx="18" cy="18" r="15.915" fill="transparent" stroke="#f59e0b" stroke-width="3.8" stroke-dasharray="30 70" stroke-dashoffset="55"/>
                 </svg>
             </div>
-            <span id="brandName">NovaMind</span>
         </div>
 
-        <!-- App Navigation Links -->
-        <nav class="nav-links">
-            <button type="button" class="nav-link active" data-app="hub">Hub</button>
-            <button type="button" class="nav-link" data-app="finance">Finance</button>
-            <button type="button" class="nav-link" data-app="goals">Goals</button>
-            <button type="button" class="nav-link" data-app="fit">Fit</button>
-        </nav>
-    </header>
-
-    <!-- Main Application Shell -->
-    <main class="app-container">
-
-        <!-- Hub View -->
-        <section id="hub-view" class="app-view active">
-            <div class="hero">
-                <h1>Welcome to NovaMind</h1>
-                <p>Your centralized personal operating system powered by proactive AI.</p>
-            </div>
-
-            <!-- Ecosystem Cards -->
-            <section class="hub-apps-overview">
-                <h2>Integrated Ecosystem</h2>
-                <div class="app-cards-grid">
-                    
-                    <article class="hub-app-card">
-                        <div class="app-card-header">
-                            <span class="app-icon finance-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"/>
-                                    <path d="M12 6v12M15 9.5c0-1.4-1.3-2.5-3-2.5s-3 1.1-3 2.5 1.3 2.5 3 2.5 3 1.1 3 2.5-1.3 2.5-3 2.5-3-1.1-3-2.5"/>
-                                </svg>
-                            </span>
-                            <h3>NovaFinance</h3>
-                        </div>
-                        <p>Track dynamic cash flow, automate safe balance projections, and monitor monthly expense caps.</p>
-                        <ul class="app-features">
-                            <li>Dynamic expense tracking</li>
-                            <li>Automated balance updates</li>
-                            <li>Smart spending guardrails</li>
-                        </ul>
-                    </article>
-
-                    <article class="hub-app-card">
-                        <div class="app-card-header">
-                            <span class="app-icon goals-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2">
-                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
-                                    <path d="M9 10l2 2 4-4"/>
-                                    <line x1="9" y1="15" x2="15" y2="15"/>
-                                </svg>
-                            </span>
-                            <h3>NovaGoals</h3>
-                        </div>
-                        <p>Deconstruct major life ambitions into weekly actionable milestones and AI-driven tasks.</p>
-                        <ul class="app-features">
-                            <li>AI task decomposition</li>
-                            <li>Adaptive weekly pacing</li>
-                            <li>Milestone progress tracking</li>
-                        </ul>
-                    </article>
-
-                    <article class="hub-app-card">
-                        <div class="app-card-header">
-                            <span class="app-icon fit-icon">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2">
-                                    <path d="M4 11c0 4.4 3.6 8 8 8s8-3.6 8-8H4z" fill="#10b981" opacity="0.2"/>
-                                    <circle cx="9" cy="9" r="1.5" fill="#ef4444"/>
-                                    <circle cx="15" cy="8.5" r="1.5" fill="#ef4444"/>
-                                </svg>
-                            </span>
-                            <h3>NovaFit</h3>
-                        </div>
-                        <p>Optimize weekly grocery lists, dietary restrictions, and meal plans while controlling costs.</p>
-                        <ul class="app-features">
-                            <li>Smart grocery summaries</li>
-                            <li>Dietary preference profiles</li>
-                            <li>Cost-optimized meal plans</li>
-                        </ul>
-                    </article>
-
+        <!-- Income vs Expenses -->
+        <div class="chart-card">
+            <h3>Income vs Expenses</h3>
+            <div class="chart-placeholder bar-chart">
+                <div class="bar-group">
+                    <div class="bar bar-income" style="height: 80%;" title="Income"></div>
+                    <div class="bar bar-expense" style="height: 45%;" title="Expense"></div>
                 </div>
-            </section>
+            </div>
+        </div>
 
-            <!-- Pricing Section -->
-            <section class="pricing-section">
-                <div class="table-container">
-                    <table class="plan-comparison-table">
-                        <caption>PLAN COMPARISON</caption>
-                        <thead>
-                            <tr>
-                                <th class="feature-col"></th>
-                                <th>Free</th>
-                                <th class="highlight-tier">Gold</th>
-                                <th>Diamond</th>
-                                <th>Platinum</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="feature-name">Active goals</td>
-                                <td>3</td>
-                                <td class="highlight-tier">Unlimited</td>
-                                <td>Unlimited</td>
-                                <td>Unlimited</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">AI decomposition</td>
-                                <td>1 level</td>
-                                <td class="highlight-tier">Full depth</td>
-                                <td>Full depth</td>
-                                <td>Full depth</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Smart pacing suggestions</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-included highlight-tier">included</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                            <tr>
-                                <td class="feature-name">Priority support</td>
-                                <td class="status-locked">locked</td>
-                                <td class="status-locked highlight-tier">locked</td>
-                                <td class="status-included">included</td>
-                                <td class="status-included">included</td>
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <td class="feature-col"></td>
-                                <td class="price">$0</td>
-                                <td class="price highlight-tier">$6-8/mo</td>
-                                <td class="price">$14-18/mo</td>
-                                <td class="price">$25-35/mo</td>
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </section>
-        </section>
+        <!-- Monthly Net Worth -->
+        <div class="chart-card">
+            <h3>Monthly Net Worth</h3>
+            <div class="chart-placeholder">
+                <svg viewBox="0 0 100 40" class="line-chart">
+                    <polyline fill="none" stroke="#6366f1" stroke-width="2" points="0,35 25,30 50,22 75,18 100,8"/>
+                </svg>
+            </div>
+        </div>
 
-        <!-- Finance View -->
-        <section id="finance-view" class="app-view">
-            <h2>Finance Dashboard</h2>
-            <div class="metrics">
-                <div class="card">Available Balance: <span id="available">$4,280.00</span></div>
-                <div class="card">Total Expenses: <span id="expenses">$1,970.00</span></div>
+        <!-- Savings Growth -->
+        <div class="chart-card">
+            <h3>Savings Growth</h3>
+            <div class="chart-placeholder">
+                <svg viewBox="0 0 100 40" class="line-chart">
+                    <polyline fill="none" stroke="#10b981" stroke-width="2" points="0,38 25,32 50,28 75,15 100,5"/>
+                </svg>
             </div>
-            <button type="button" class="btn-primary" id="openTxnModalBtn">Add Transaction</button>
-        </section>
+        </div>
 
-        <!-- Goals View -->
-        <section id="goals-view" class="app-view">
-            <h2>Goals Tracker</h2>
-            <button type="button" class="btn-primary" id="openGoalModalBtn">Add New Goal</button>
-
-            <div id="goalsGrid" class="goals-grid">
-                <!-- Dynamic Goal Cards -->
-            </div>
-
-            <div class="grid" id="planArea" hidden>
-                <div class="tree-head">
-                    <h2>Goal Plan</h2>
-                    <p class="sub">AI plan details</p>
-                </div>
-                <div id="planTree" class="plan-tree"></div>
-            </div>
-        </section>
-
-        <!-- Fit View -->
-        <section id="fit-view" class="app-view">
-            <h2>NovaFit Dashboard</h2>
-            <div class="shopping-summary">
-                <span class="total-items">0 items remaining</span>
-            </div>
-            <div class="dietary-card">
-                <button type="button" class="btn-secondary">Edit Preferences</button>
-            </div>
-            <div class="meal-plan-card">
-                <button type="button" class="btn-secondary">View Week</button>
-            </div>
-            <div class="ai-suggestion-card">
-                <span class="estimated-cost">Est. $62.00</span>
-                <button type="button" class="btn-amber">Optimize Further</button>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Dialog Modals -->
-    <dialog id="transactionModal">
-        <form id="transactionForm">
-            <div class="dialog-header">
-                <h3>Add Transaction</h3>
-                <button type="button" class="btn-close" id="closeTxnModalBtn" aria-label="Close modal">✕</button>
-            </div>
-            <div class="form-group">
-                <label for="txnName">Transaction Name</label>
-                <input type="text" id="txnName" name="txnName" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label for="txnAmount">Amount ($)</label>
-                <input type="number" id="txnAmount" name="txnAmount" step="0.01" min="0.01" required>
-            </div>
-            <div class="dialog-actions">
-                <button type="button" class="btn-secondary" id="cancelTxnModalBtn">Cancel</button>
-                <button type="submit" class="btn-primary">Save Transaction</button>
-            </div>
-        </form>
-    </dialog>
-
-    <dialog id="goalModal">
-        <form id="goalForm">
-            <div class="dialog-header">
-                <h3>Add New Goal</h3>
-                <button type="button" class="btn-close" id="closeGoalModalBtn" aria-label="Close modal">✕</button>
-            </div>
-            <div class="form-group">
-                <label for="goalName">Goal Name</label>
-                <input type="text" id="goalName" name="goalName" required autocomplete="off">
-            </div>
-            <div class="form-group">
-                <label for="goalHours">Hours / Week</label>
-                <select id="goalHours" name="goalHours">
-                    <option value="2">2 hours</option>
-                    <option value="5" selected>5 hours</option>
-                    <option value="10">10 hours</option>
-                </select>
-            </div>
-            <div class="dialog-actions">
-                <button type="button" class="btn-secondary" id="cancelGoalModalBtn">Cancel</button>
-                <button type="submit" class="btn-primary">Create Goal</button>
-            </div>
-        </form>
-    </dialog>
-
-    <!-- Directly linking app.js at the root level -->
-    <script src="app.js"></script>
-</body>
-</html>
+    </div>
+</section>
